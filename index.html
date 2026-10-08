@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CompetPro – practice competitive programming in your browser</title>
+<meta name="description" content="Free competitive programming practice. Solve algorithm problems in JavaScript, run them against hidden tests in your browser, and earn a balloon for every solve.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🎈</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span aria-hidden="true">🎈</span> CompetPro</a>
+    <a class="l" href="#how">How it works</a>
+    <a class="l" href="#features">Features</a>
+    <a class="l" href="#problems">Problems</a>
+    <a class="l" href="#tool">Tool</a>
+    <a class="l" href="#faq">FAQ</a>
+    <a class="btn sm" href="practice.html">Start practicing</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Get better at competitive programming, one problem at a time.</h1>
+      <p class="lede">Solve algorithm problems in JavaScript, run them against hidden tests right in your browser, and earn a balloon for every problem you crack.</p>
+      <div class="cta">
+        <a class="btn" href="practice.html">Start practicing</a>
+        <a class="btn alt" href="#problems">Browse problems</a>
+      </div>
+      <p class="fine" id="progress">No sign-up. Your progress is saved in this browser.</p>
+    </div>
+    <div class="mock" aria-hidden="true">
+      <div class="top"><span>Longest Increasing Subsequence</span><span style="color:var(--med)">Medium</span></div>
+<pre>function lis(nums) {
+  const tails = [];
+  for (const v of nums) {
+    let lo = 0, hi = tails.length;
+    while (lo &lt; hi) {
+      const mid = (lo + hi) &gt;&gt; 1;
+      tails[mid] &lt; v ? lo = mid + 1 : hi = mid;
+    }
+    tails[lo] = v;
+  }
+  return tails.length;
+}</pre>
+      <div class="out"><span class="win">All tests passed</span> 🎈<div class="dots"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b id="n-problems">8</b><span>Practice problems</span></div>
+    <div class="stat"><b id="n-topics">10</b><span>Topics covered</span></div>
+    <div class="stat"><b>3</b><span>Difficulty levels</span></div>
+    <div class="stat"><b>Free</b><span>No account needed</span></div>
+  </div>
+</div>
+
+<section class="s" id="how">
+  <div class="wrap">
+    <div class="head"><h2>How it works</h2><p>Practice follows the same loop as a real contest, without the setup.</p></div>
+    <ol class="steps">
+      <li><h3>Pick a problem</h3><p>Choose by difficulty or topic. Each problem comes with a clear statement and worked examples.</p></li>
+      <li><h3>Write your solution</h3><p>Code in the built-in editor. Your work is saved automatically, so you can leave and come back.</p></li>
+      <li><h3>Run the tests</h3><p>Your function runs against sample and hidden tests, including large inputs. Pass them all and the balloon is yours.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="s alt" id="features">
+  <div class="wrap">
+    <div class="head"><h2>Built for deliberate practice</h2><p>Everything you need to build speed and accuracy, nothing that gets in the way.</p></div>
+    <div class="feat">
+      <div><h3>Hidden tests with large inputs</h3><p>Correct but slow solutions fail with a time limit exceeded, just like on a real judge. You learn to think about complexity.</p></div>
+      <div><h3>Runs entirely in your browser</h3><p>Your code is executed in a background worker on your own machine. Nothing is uploaded and there is no server to wait on.</p></div>
+      <div><h3>Clear feedback on failures</h3><p>When a sample test fails you see the input, the expected output and what your code returned. Hidden failures point you to edge cases.</p></div>
+      <div><h3>Progress that persists</h3><p>Solved problems and your latest code are stored in this browser, so there is nothing to sign in to or sync.</p></div>
+      <div><h3>Balanced difficulty</h3><p>Problems move from prefix sums and stacks up to dynamic programming, BFS and Dijkstra with a heap.</p></div>
+      <div><h3>Easy to extend</h3><p>Add a problem by writing a statement, a reference solution and a list of inputs. Expected outputs are generated for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="problems">
+  <div class="wrap">
+    <div class="head"><h2>The problem set</h2><p>Open any problem to start. Dashed balloons are waiting to be earned.</p></div>
+    <div class="board" id="preview" aria-label="Problem list"></div>
+    <p style="margin-top:22px"><a class="btn" href="practice.html">Open practice area</a></p>
+  </div>
+</section>
+
+<section class="s alt" id="tool">
+  <div class="wrap">
+    <div class="tools">
+      <div>
+        <small>Recommended tool</small>
+        <h2 data-tool="name">Competitive Companion</h2>
+        <p data-tool="line"></p>
+      </div>
+      <a class="btn" data-tool="url" target="_blank" rel="noopener"><span data-tool="cta">Get the extension</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="faq">
+  <div class="wrap">
+    <div class="head"><h2>Questions</h2></div>
+    <div class="faq">
+      <details><summary>Do I need an account?</summary><p>No. There is nothing to sign up for. Your solved problems and saved code live in your browser's local storage.</p></details>
+      <details><summary>Which language can I use?</summary><p>JavaScript. You write a single function, such as <code>twoSum(nums, target)</code>, and the runner calls it with each test input.</p></details>
+      <details><summary>How are solutions judged?</summary><p>The returned value is compared with the expected output for every test. If your code runs longer than four seconds on the full set, the run ends with a time limit exceeded.</p></details>
+      <details><summary>Will I lose my progress?</summary><p>Progress is stored per browser and device. Clearing site data, or switching browsers, starts you fresh.</p></details>
+      <details><summary>Can I add my own problems?</summary><p>Yes. Open <code>js/problems.js</code> and add an entry with a title, statement, starter code, reference solution and test inputs.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final s alt">
+  <div class="wrap">
+    <h2>Ready for your first balloon?</h2>
+    <p>Start with Two Sum and work your way up.</p>
+    <div class="cta"><a class="btn" href="practice.html#/p/two-sum">Solve Two Sum</a><a class="btn alt" href="practice.html">See all problems</a></div>
+  </div>
+</section>
+
+<footer class="foot"><div class="wrap"><span>🎈 CompetPro. Practice problems for competitive programmers.</span><span>Runs in your browser. No tracking.</span></div></footer>
+
+<script src="js/common.js"></script>
+<script src="js/problems.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>
